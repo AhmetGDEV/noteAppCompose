@@ -13,12 +13,14 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import com.ahmetgur.noteAppCompose.feature_note.presentation.notes.components.NoteItem
 import com.ahmetgur.noteAppCompose.feature_note.presentation.notes.components.OrderSection
 import com.ahmetgur.noteAppCompose.feature_note.presentation.util.Screen
+import com.ahmetgur.noteappcompose.R
 import kotlinx.coroutines.launch
 
 @ExperimentalAnimationApi
@@ -37,7 +39,7 @@ fun NotesScreen(
                 onClick = { navController.navigate(Screen.AddEditNoteScreen.route) },
                 backgroundColor = MaterialTheme.colors.primary
             ) {
-                Icon(imageVector = Icons.Default.Add, contentDescription = "Add Note")
+                Icon(imageVector = Icons.Default.Add, contentDescription = stringResource(R.string.addNote))
             }
         }, scaffoldState = scaffoldState
     )

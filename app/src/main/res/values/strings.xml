@@ -1,3 +1,19 @@
 <resources>
     <string name="app_name">noteAppCompose</string>
+    <string name="saveNote">Save note</string>
+    <string name="notes_db">notes_db</string>
+    <string name="titleException">The title of the note can\'t be empty.</string>
+    <string name="contentException">The content of the note can\'t be empty.</string>
+    <string name="titleHint">Enter title...</string>
+    <string name="contentHint">Enter some content</string>
+    <string name="noteId">noteId</string>
+    <string name="saveNoteException">Couldn\'t save note</string>
+    <string name="title">Title</string>
+    <string name="date">Date</string>
+    <string name="color">Color</string>
+    <string name="ascending">Ascending</string>
+    <string name="descending">Descending</string>
+    <string name="addNote">Add Note</string>
+    <string name="noteScreen">note_screen</string>
+    <string name="addEditNoteScreen">add_edit_note_screen</string>
 </resources>

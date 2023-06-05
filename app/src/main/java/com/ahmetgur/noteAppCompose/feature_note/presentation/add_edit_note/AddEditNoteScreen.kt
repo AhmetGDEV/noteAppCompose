@@ -20,11 +20,13 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.toArgb
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import com.ahmetgur.noteAppCompose.feature_note.domain.model.Note
 import com.ahmetgur.noteAppCompose.feature_note.presentation.add_edit_note.components.TransparentHintTextField
+import com.ahmetgur.noteappcompose.R
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 
@@ -70,7 +72,7 @@ fun AddEditNoteScreen(
                 },
                 Modifier.background(MaterialTheme.colorScheme.primary)
             ) {
-                Icon(imageVector = Icons.Default.Save, contentDescription = "Save note")
+                Icon(imageVector = Icons.Default.Save, contentDescription = stringResource(R.string.saveNote))
             }
         },
         scaffoldState = scaffoldState

@@ -9,6 +9,7 @@ import androidx.lifecycle.viewModelScope
 import com.ahmetgur.noteAppCompose.feature_note.domain.model.InvalidNoteException
 import com.ahmetgur.noteAppCompose.feature_note.domain.model.Note
 import com.ahmetgur.noteAppCompose.feature_note.domain.use_case.UseCases
+import com.ahmetgur.noteappcompose.R
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.asSharedFlow
@@ -23,14 +24,14 @@ class AddEditNoteViewModel @Inject constructor(
 
     private val _noteTitle = mutableStateOf(
         NoteTextFieldState(
-            hint = "Enter title..."
+            hint = context.getString(R.string.titleHint)
         )
     )
     val noteTitle: State<NoteTextFieldState> = _noteTitle
 
     private val _noteContent = mutableStateOf(
         NoteTextFieldState(
-            hint = "Enter some content"
+            hint = context.getString(R.string.contentHint)
         )
     )
     val noteContent: State<NoteTextFieldState> = _noteContent
@@ -44,7 +45,7 @@ class AddEditNoteViewModel @Inject constructor(
     private var currentNoteId: Int? = null
 
     init {
-        savedStateHandle.get<Int>("noteId")?.let { noteId ->
+        savedStateHandle.get<Int>(context.getString(R.string.noteId))?.let { noteId ->
             if (noteId != -1) {
                 viewModelScope.launch {
                     noteUseCases.getNote(noteId)?.also {
@@ -107,7 +108,7 @@ class AddEditNoteViewModel @Inject constructor(
                     } catch (e: InvalidNoteException) {
                         _eventFlow.emit(
                             UiEvent.ShowSnackbar(
-                                message = e.message ?: "Couldn't save note"
+                                message = e.message ?: context.getString(R.string.saveNoteException)
                             )
                         )
                     }
